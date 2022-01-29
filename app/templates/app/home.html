@@ -8,12 +8,16 @@
 <body>
     <form method="post" action="">
         {% csrf_token %}
-        <input type="text" name="given_url">
-        <button type="submit">Proceed</button>
+        <input type="text" name="given_url" value="{{url}}" placeholder="enter url..">
+        <button type="submit" name="fetch-vid">Proceed</button>
     </form>
-    {{vid}}
+    <h3>{{vidTitle}}</h3>
+    <img src="{{vidThumbnail}}"/>
     {% for x in qual %}
-        <p>{{x.mime_type}}</p>
+        <p>{{x}}</p>
+        <!-- PROBLEM ABOUT THIS DOWNLOADS -->
+        <!-- <button onclick="window.location.href = '/{{x}}/{{stream}}'">Download</button></a> -->
     {% endfor %}
+
 </body>
 </html>

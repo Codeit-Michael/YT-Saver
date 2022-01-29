@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     path('',views.home,name='home'),
+    # path('<id>/<stream>/',views.downloadVid,name='downloadVid'),
 ]
