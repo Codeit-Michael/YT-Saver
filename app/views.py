@@ -25,9 +25,12 @@ class home(View):
                         'qual':qual,'stream':stream,
                         'url':self.url}
             return render(request,'app/home.html',context)
+
         elif request.POST.get('download-vid'):
             self.url = request.POST.get('given_url')
-            print(int(request.POST.get('download-vid')) + 4)
+            video = YouTube(self.url)
+            stream = [x for x in video.streams.filter(progressive=True)]
+            video.streams[int(request.POST.get('download-vid')) - 1].download()
 
         return render(request,'app/home.html')
         
