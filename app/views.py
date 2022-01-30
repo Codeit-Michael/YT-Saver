@@ -9,7 +9,6 @@ class home(View):
         self.url = url
 
     def get(self,request):
-        # print(self.url)
         return render(request,'app/home.html')    
 
     def post(self,request):
