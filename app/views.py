@@ -30,5 +30,6 @@ class home(View):
             video = YouTube(self.url)
             stream = [x for x in video.streams.filter(progressive=True)]
             video.streams[int(request.POST.get('download-vid')) - 1].download(output_path='../../Downloads')
+            return redirect('home')
 
         return render(request,'app/home.html')
