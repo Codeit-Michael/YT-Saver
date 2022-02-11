@@ -2,3 +2,5 @@ asgiref==3.5.0
 Django==4.0.2
 pytube @ git+https://github.com/rmerzouki/pytube@a63856e009a0d01f03e30065900c3f4851b7eebf
 sqlparse==0.4.2
+urllib3==1.26.8
+whitenoise==6.0.0
