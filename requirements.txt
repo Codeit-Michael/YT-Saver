@@ -1,6 +1,8 @@
 asgiref==3.5.0
+backports.zoneinfo==0.2.1
 Django==4.0.2
-pytube @ git+https://github.com/rmerzouki/pytube@a63856e009a0d01f03e30065900c3f4851b7eebf
+psycopg2==2.9.3
+pytube==11.0.2
 sqlparse==0.4.2
 urllib3==1.26.8
 whitenoise==6.0.0
