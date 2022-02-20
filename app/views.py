@@ -4,12 +4,12 @@ from pytube import YouTube
 from django.views.generic import View
 
 # Create your views here.
-class home(View):
+class VideoProcessor(View):
     def __init__(self,url=None):
         self.url = url
 
     def get(self,request):
-        return render(request,'app/home.html')    
+        return render(request,'app/main.html')    
 
     def post(self,request):
         if request.POST.get('fetch-vid'):
@@ -23,13 +23,11 @@ class home(View):
             context = {'vidTitle':vidTitle,'vidThumbnail':vidThumbnail,
                         'qual':qual,'stream':stream,
                         'url':self.url}
-            return render(request,'app/home.html',context)
-
+            return render(request,'app/main.html',context)
         elif request.POST.get('download-vid'):
             self.url = request.POST.get('given_url')
             video = YouTube(self.url)
             stream = [x for x in video.streams.filter(progressive=True)]
-            video.streams[int(request.POST.get('download-vid')) - 1].download()
-            return redirect('home')
-
-        return render(request,'app/home.html')
+            video.streams[int(request.POST.get('download-vid')) - 1].download(output_path='DownloadedVideos')
+            return redirect('video-processor')
+        return render(request,'app/main.html')
