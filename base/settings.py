@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '0.0.0.0',
     '127.0.0.1',
+    'strong-wave-00540.herokuapp.com',
 ]
 
 
