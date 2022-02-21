@@ -27,7 +27,7 @@
         <br>
 
         {% for x in stream %}
-            {{x.resolution}} <button type="submit" name="download-vid" value="{{forloop.counter}}">Download</button>|
+            <button type="submit" name="download-vid" value="{{forloop.counter}}">{{x.resolution}}</button>|
         {% endfor %}
         <br><br>
     </form>
